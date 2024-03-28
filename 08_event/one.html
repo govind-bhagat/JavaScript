@@ -43,9 +43,9 @@
     // }    // false is default
     //     , false)
 
-    document.getElementById('A').addEventListener('click', function (e) {
-        console.log(e);
-    })
+    // document.getElementById('A').addEventListener('click', function (e) {
+    //     console.log(e);
+    // })
 
     // important --->>
     // type, timestamp, defaultPrevented,
@@ -53,7 +53,55 @@
     // clientX, clientY, screenX, screenY
     //altKey, ctrKey, shiftKey, keyCode
 
-    
+    // bubbling --->>>bottom to top
+    // document.getElementById('images').addEventListener('click', function (e) {
+    //     console.log('clicked inside ul');
+    // },false)
+    // document.getElementById('A').addEventListener('click', function (e) {
+    //     console.log('A clicked');
+    // },false)
+
+    //capturing Mode --->>> top to bottom
+    // document.getElementById('images').addEventListener('click', function (e) {
+    //     console.log('clicked inside ul');
+    // },true)
+    // document.getElementById('A').addEventListener('click', function (e) {
+    //     console.log('A clicked');
+    // },true)
+
+    //stop bubbling  --->>>stopPropagation
+    // document.getElementById('images').addEventListener('click', function (e) {
+    //     console.log('clicked inside ul');
+    // },false)
+    // document.getElementById('A').addEventListener('click', function (e) {
+    //     console.log('A clicked');
+    //     e.stopPropagation()
+    // },false)
+
+
+    // //     --->>>preventDefaul
+    document.getElementById('google').addEventListener('click', function (e) {
+        console.log("google clicked");
+        e.preventDefault();
+        // e.stopPropagation();
+    }, false)
+
+    //image remove after click
+    document.querySelector('#images').addEventListener('click', function (e) {
+        // console.log(e);
+        // console.log(e.target);
+        // console.log(e.target.parentNode);
+        // let removeIt = e.target.parentNode
+        // //removeIt.remove()
+        // //removeIt.parentNode.removeChild(removeIt)
+
+        console.log(e.target.tagName);
+        if (e.target.tagName === 'IMG') {
+            console.log(e.target.id);
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+        }
+    })
 
 </script>
 
