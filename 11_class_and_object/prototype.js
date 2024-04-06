@@ -1,19 +1,17 @@
 let myName = "Govind    "
 let fav =  "   chai"
 
-String.prototype.trueLength = function(str) {
+String.prototype.trueLength = function() {
     {
-        str = str.trim()
-        return str.length
+        console.log(this);
+        console.log(this.trim().length);
     }
 }
 
 console.log(myName.length);
+myName.trueLength();
 console.log(fav.length);
-// console.log(myName.trueLength);
-// console.log(fav.trueLength);
-console.log(myName.trueLength(myName));
-console.log(fav.trueLength(fav));
+fav.trueLength();
 
 
 
@@ -36,3 +34,32 @@ myHero.Govind()
 myName.Govind()
 fav.Govind()
 */
+
+
+
+//inheritance
+
+const user = {
+    user: "sjkh",
+    email: "agmail.com"
+}
+
+const Teacher = {
+    makeVideo: true
+}
+
+const Teachingsupporter = {
+    isAvailable: false
+}
+
+const TASupport = {
+    makeAssignment: 'JS assignment',
+    fullTime: true,
+    __proto__: Teachingsupporter
+}
+
+Teacher.__proto__ = user
+
+//modern Sentence
+
+Object.setPrototypeOf(Teachingsupporter,Teacher)
