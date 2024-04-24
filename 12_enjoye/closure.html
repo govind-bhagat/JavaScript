@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color: #111;">
+    <button id="green">GREEN</button>
+    <button id="red">RED</button>
+</body>
+<script>
+    // function init() {
+    //     let name = "Mozilla";
+    //     function displayName() {
+    //         console.log(name);
+    //     }
+    //     displayName();
+    // }
+    // init();
+
+
+    // function makeFunc() {
+    //     const name = "closure";
+    //     function displayName() {
+    //         console.log(name);
+    //     }
+    //     return displayName;    //   not only function return also return lexical scope of function
+    // }
+
+    // const myFunc = makeFunc();
+    // myFunc();
+
+
+</script>
+
+<script>
+    // document.getElementById("green").onclick = function () {
+    //     document.body.style.backgroundColor = "green";
+    // }
+
+    // document.getElementById("red").onclick = function () {
+    //     document.body.style.backgroundColor = "red";
+    // }
+
+
+    function clickHandler(color) {
+        // document.body.style.backgroundColor = `${color}`;
+
+        return function () {
+            document.body.style.backgroundColor = `${color}`
+        }
+    }
+
+    document.getElementById('green').onclick = clickHandler("green")
+    document.getElementById('red').onclick = clickHandler("red")
+</script>
+
+</html>
